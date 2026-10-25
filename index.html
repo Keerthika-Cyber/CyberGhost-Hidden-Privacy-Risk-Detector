@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- SEO Meta -->
+  <title>CyberGhost — Hidden Privacy Risk Detector</title>
+  <meta name="description"
+        content="CyberGhost scans your text locally in the browser to detect hidden privacy risks — emails, phone numbers, secrets, IDs, and addresses — without uploading anything to a server." />
+  <meta name="keywords" content="privacy, cybersecurity, data protection, email detector, secret scanner, privacy risk" />
+  <meta name="author" content="CyberGhost — IBM SkillsBuild Cybersecurity BootCamp" />
+
+  <!-- No external resources — all local, per privacy-first design -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Favicon: inline SVG shield -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M16 2L4 7v9c0 7.5 5.2 14.5 12 16.4C23 30.5 28 23.5 28 16V7L16 2z' fill='%2300d4ff' opacity='0.9'/><path d='M12 16l3 3 5-6' stroke='%230d1117' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>" />
+</head>
+<body>
+
+  <!-- Skip to main content for accessibility -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- =============================================
+       HEADER
+       ============================================= -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="logo-group">
+        <!-- CSS-generated shield icon via inline SVG -->
+        <div class="shield-icon" aria-hidden="true">
+          <svg viewBox="0 0 52 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M26 2L4 10v16c0 14 10.5 27 22 30.5C38.5 53 48 40 48 26V10L26 2z"
+                  fill="url(#shieldGrad)" opacity="0.9"/>
+            <path d="M18 28l6 6 10-12" stroke="#0d1117" stroke-width="3.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="shieldGrad" x1="4" y1="2" x2="48" y2="56" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#00d4ff"/>
+                <stop offset="100%" stop-color="#00b8a9"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-name">CyberGhost</div>
+          <div class="brand-subtitle">Hidden Privacy Risk Detector</div>
+        </div>
+      </div>
+      <div class="privacy-badge" title="All scanning is performed locally. No data is uploaded.">
+        100% Local Scanning — Zero Upload
+      </div>
+    </div>
+  </header>
+
+  <!-- =============================================
+       MAIN CONTENT
+       ============================================= -->
+  <main id="main-content" role="main">
+
+    <!-- ==== SECTION 1: TEXT SCANNER ==== -->
+    <section class="section" aria-labelledby="scanner-heading">
+      <h1 id="scanner-heading" class="section-title">Text Scanner</h1>
+      <div class="panel">
+        <label class="input-label" for="text-input">
+          Paste or type text you plan to share — CyberGhost will detect hidden privacy risks
+        </label>
+
+        <textarea
+          id="text-input"
+          name="text-input"
+          rows="10"
+          maxlength="100000"
+          placeholder="Paste your email, message, document or post here…
+
+Example:
+  Contact me at alex@example.com or call +91 9876543210.
+  api_key=your_key_here
+
+Press Ctrl + Enter to scan quickly."
+          aria-label="Text to scan for privacy risks"
+          aria-describedby="char-counter input-error input-hint"
+          spellcheck="false"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+        ></textarea>
+
+        <div class="input-footer">
+          <span id="char-counter" aria-live="polite" aria-atomic="true">0 / 100,000 characters</span>
+          <span id="input-hint" class="input-hint">Ctrl + Enter to scan · Local only · Nothing is uploaded</span>
+        </div>
+
+        <div id="input-error" role="alert" aria-live="assertive"></div>
+
+        <div class="btn-group" role="group" aria-label="Scanner controls">
+          <button id="btn-scan" class="btn btn-primary" type="button"
+                  aria-label="Scan text for privacy risks">
+            🔍 Scan Text
+          </button>
+          <button id="btn-demo" class="btn btn-secondary" type="button"
+                  aria-label="Load a safe demo example">
+            📋 Load Demo
+          </button>
+          <button id="btn-clear" class="btn btn-ghost" type="button"
+                  aria-label="Clear all input and results">
+            ✕ Clear All
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==== SECTION 2: RESULTS DASHBOARD ==== -->
+    <section id="results-section" class="section" aria-labelledby="results-heading" aria-live="polite">
+      <h2 id="results-heading" class="section-title">Privacy Risk Results</h2>
+      <div id="stale-notice" class="stale-notice" role="status" aria-live="polite">
+        <span>⚠</span> Input text has changed since the last scan. Click <strong>Scan Text</strong> to refresh results.
+      </div>
+
+      <div class="results-grid">
+
+        <!-- Score Card -->
+        <div id="score-card" role="region" aria-labelledby="score-heading">
+          <h3 id="score-heading" class="visually-hidden">Privacy Score</h3>
+          <p class="score-label">Indicative Privacy Score</p>
+          <div id="score-circle" aria-live="polite" aria-label="Privacy score">—</div>
+          <p id="risk-category" aria-live="polite"></p>
+          <p id="finding-count" aria-live="polite"></p>
+          <div class="score-calc-note">
+            Score starts at 100. Points are deducted per finding category.
+            Duplicate findings use reduced deductions.
+          </div>
+          <div id="score-disclaimer" role="note">
+            ⚠ This score is an <strong>educational indicator only</strong>. It is
+            not a security certification or guarantee. A score of 100 does not
+            mean text is entirely safe — it means no known patterns were detected.
+          </div>
+        </div>
+
+        <!-- Category Summary -->
+        <div>
+          <div class="panel" style="margin-bottom:1rem;">
+            <h3 class="section-title" style="font-size:0.9rem; margin-bottom:0.75rem;">
+              Category Summary
+            </h3>
+            <div id="category-summary" aria-live="polite" aria-label="Findings by category"></div>
+          </div>
+
+          <!-- Detailed Findings -->
+          <div class="panel">
+            <h3 class="section-title" style="font-size:0.9rem; margin-bottom:0.75rem;">
+              Detailed Findings
+            </h3>
+            <div id="findings-list" class="findings-panel" aria-live="polite"
+                 aria-label="Detailed findings list"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==== SECTION 3: ACTIONS ==== -->
+    <section id="actions-section" class="section" aria-labelledby="actions-heading">
+      <h2 id="actions-heading" class="section-title">Actions</h2>
+      <div class="panel">
+        <div class="btn-group" role="group" aria-label="Privacy actions">
+          <button id="btn-mask" class="btn btn-success" type="button"
+                  aria-label="Mask all sensitive information in the text">
+            🛡 Mask Sensitive Information
+          </button>
+          <button id="btn-report" class="btn btn-secondary" type="button"
+                  aria-label="Download a JSON security report">
+            📥 Download Report (JSON)
+          </button>
+        </div>
+        <p class="report-meta">
+          <strong>Masking</strong> replaces detected patterns with safe placeholders. Your original text
+          is not altered until you apply masking. ·
+          <strong>Report</strong> contains only metadata and masked values — never the original input text.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==== SECTION 4: MASKED OUTPUT ==== -->
+    <section id="masked-section" class="section" aria-labelledby="masked-heading">
+      <h2 id="masked-heading" class="section-title">Masked Output</h2>
+      <div class="panel">
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.9rem;">
+          Sensitive information has been replaced with safe placeholders. Review before sharing.
+        </p>
+        <!-- textContent is used by JavaScript — NEVER innerHTML with user input -->
+        <div id="masked-output" role="region" aria-label="Masked text output" tabindex="0"></div>
+        <div class="btn-group" style="margin-top:1rem;" role="group" aria-label="Masked output actions">
+          <button id="btn-copy" class="btn btn-secondary" type="button"
+                  aria-label="Copy masked text to clipboard">
+            📋 Copy Masked Text
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==== PRIVACY NOTICE ==== -->
+    <section class="privacy-notice" aria-labelledby="privacy-heading">
+      <h2 id="privacy-heading">🔒 Privacy Notice — How CyberGhost Works</h2>
+      <p>
+        <strong>All scanning is performed entirely in your browser using JavaScript.</strong>
+        Your text is never sent to any server, cloud service, or external API.
+        CyberGhost does not store, log, or transmit your input for any purpose.
+      </p>
+      <p>
+        <strong>No external scripts or fonts</strong> are loaded. The application runs entirely from
+        its local files after initial page load, with no network calls during scanning.
+      </p>
+      <p>
+        <strong>Important limitations:</strong> Detection uses regular expression pattern matching.
+        It may miss novel formats and may produce false positives. Results are
+        <em>educational indicators</em>, not security guarantees. No pattern-matching tool can
+        detect every possible sensitive format or confirm the authenticity of matched data.
+      </p>
+      <p>
+        <strong>Memory note:</strong> While the page is open, text you enter resides temporarily
+        in browser memory. Closing the tab removes it. CyberGhost does not write scanned text
+        to localStorage, sessionStorage, cookies, or any persistent storage.
+      </p>
+    </section>
+
+  </main><!-- /main -->
+
+  <!-- =============================================
+       FOOTER
+       ============================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <p>
+      CyberGhost — Hidden Privacy Risk Detector ·
+      IBM SkillsBuild Cybersecurity BootCamp Project ·
+      Client-side only · No data uploaded
+    </p>
+  </footer>
+
+  <!-- Toast notification (created by JS) -->
+  <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Detection engine & UI logic — local only -->
+  <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+# .gitignore — CyberGhost
+
+# ---- Environment files (never commit secrets) ----
+.env
+.env.*
+*.env
+
+# ---- Python virtual environments ----
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# ---- Node.js (if tooling added later) ----
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp/
+.pnp.js
+
+# ---- Downloaded/generated reports containing user scans ----
+# Do NOT commit real scan reports with personal data
+cyberghost-report-*.json
+scan-report-*.json
+*.scan.json
+
+# ---- OS temporary files ----
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ---- Editor directories ----
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ---- Logs ----
+*.log
+logs/
+
+# ---- Private test data ----
+# Do not commit real user text samples
+test-data/private/
+*.private.txt
+*.private.md

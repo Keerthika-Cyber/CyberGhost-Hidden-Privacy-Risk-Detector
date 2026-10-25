@@ -1,0 +1,67 @@
+# CyberGhost — Requirements
+
+## Application Runtime Requirements
+
+This application is a **browser-only, client-side** HTML/CSS/JavaScript project.
+
+**No Python packages are required to run the application.**
+
+The application runs by opening `index.html` in any modern web browser.
+No build step, package manager, or runtime installation is needed.
+
+---
+
+## Optional: Convenience Python Server
+
+If you wish to serve the files over HTTP (e.g., for certain browser security policies),
+you may use Python's built-in HTTP server. This is optional and requires:
+
+- Python 3.6+  (standard library only — no pip packages needed)
+
+Usage:
+```bash
+cd CyberGhost/
+python -m http.server 8080
+# Open http://localhost:8080 in your browser
+```
+
+No third-party Python packages are required.
+
+---
+
+## Browser Compatibility Requirements
+
+| Browser | Minimum Version |
+|---------|----------------|
+| Google Chrome | 90+ |
+| Mozilla Firefox | 88+ |
+| Microsoft Edge | 90+ |
+| Safari | 14+ |
+
+Features used:
+- ES2020 JavaScript (nullish coalescing, optional chaining, BigInt not used)
+- CSS Custom Properties (variables)
+- CSS Grid and Flexbox
+- Web Blob API (for report download)
+- Clipboard API (with execCommand fallback)
+
+---
+
+## Development Tools (Optional)
+
+For development convenience only — not required for the application to function:
+
+| Tool | Purpose |
+|------|---------|
+| VS Code | Code editing |
+| VS Code Live Server extension | Local development server |
+| Browser DevTools | Testing and inspection |
+
+---
+
+## IBM SkillsBuild Submission Note
+
+This project is intentionally a client-side-only web application.
+The `requirements.txt` file accurately reflects that no Python packages are needed.
+The submission Jupyter Notebook (`cyberghost_submission.ipynb`) serves as a
+source-code listing and documentation artifact, not as the executable application itself.
