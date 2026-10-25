@@ -204,8 +204,6 @@ Quick smoke test:
 
 `https://github.com/Keerthika-Cyber/CyberGhost-Hidden-Privacy-Risk-Detector.git
 
-*(Replace with actual repository URL after publishing)*
-
 ---
 
 ## License
