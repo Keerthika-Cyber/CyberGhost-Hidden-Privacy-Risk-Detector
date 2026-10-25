@@ -202,7 +202,7 @@ Quick smoke test:
 
 ## GitHub Repository
 
-`https://github.com/your-username/cyberghost-privacy-detector`
+`https://github.com/Keerthika-Cyber/CyberGhost-Hidden-Privacy-Risk-Detector.git
 
 *(Replace with actual repository URL after publishing)*
 
